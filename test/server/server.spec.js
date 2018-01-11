@@ -1,7 +1,5 @@
 const appUrl = 'http://localhost:3000';
 
-let server = require('../../server/index');
-
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let should = chai.should();
