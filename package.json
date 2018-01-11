@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha test/**/*.spec.js",
     "start": "node ./server/index.js",
-    "start-local": "set IS_LOCAL=true&& node ./server/index.js"
+    "start-local": "set IS_LOCAL=true&& node ./server/index.js",
+    "update-webdriver": "webdriver-manager update",
+    "start-webdriver": "webdriver-manager start",
+    "protractor": "protractor"
   },
   "author": "Самсончик И.С.",
   "license": "MIT",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "chai-http": "^3.0.0",
     "http-server": "^0.10.0",
     "karma": "^2.0.0",
