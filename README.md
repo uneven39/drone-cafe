@@ -9,7 +9,7 @@
 ## Запуск приложения локально
 
 ```
-npm install
+
 npm start-local
 ```
 
