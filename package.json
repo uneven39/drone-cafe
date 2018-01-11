@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "node ./server/index.js"
+    "start": "node ./server/index.js",
+    "start-local": "set IS_LOCAL=true&& node ./server/index.js"
   },
   "author": "Самсончик И.С.",
   "license": "MIT",

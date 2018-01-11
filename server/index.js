@@ -13,7 +13,8 @@ let clientSchema =			require('./db/clientSchema'),
 
 mongoose.Promise =	global.Promise;
 
-const config =			require('./serverConfig');
+const config =			require('./serverConfig'),
+			dbUrl = process.env.IS_LOCAL ? config.db.urlLocal : config.db.url;
 
 let app =						express(),
 		server =				http.Server(app),
@@ -37,7 +38,7 @@ app.use('/menu', menuRoute);
 server.listen(process.env.PORT || config.server.port);
 console.log('Server is running on port: ', config.server.port);
 
-mongoose.connect(config.db.url, {useMongoClient: true}, (error, db) => {
+mongoose.connect(dbUrl, {useMongoClient: true}, (error, db) => {
 	if (error)
 		console.error('Cannot connect to db: ', error);
 	else {
