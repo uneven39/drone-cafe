@@ -34,7 +34,7 @@ app.use('/kitchen', kitchenRoute);
 app.use('/client', clientRoute);
 app.use('/menu', menuRoute);
 
-server.listen(config.server.port);
+server.listen(process.env.PORT || config.server.port);
 console.log('Server is running on port: ', config.server.port);
 
 mongoose.connect(config.db.url, {useMongoClient: true}, (error, db) => {
