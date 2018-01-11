@@ -1,15 +1,13 @@
-const express =					require('express'),
-			fs =							require('fs'),
-			http =						require('http'),
-			io =							require('socket.io'),
-			drone =						require('netology-fake-drone-api'),
-			bodyParser =			require('body-parser'),
-			mongoose =				require('mongoose');
+const express =			require('express'),
+			fs =					require('fs'),
+			http =				require('http'),
+			io =					require('socket.io'),
+			drone =				require('netology-fake-drone-api'),
+			bodyParser =	require('body-parser'),
+			mongoose =		require('mongoose');
 
-let clientSchema =			require('./db/clientSchema'),
-		Client =						mongoose.model('Client', clientSchema),
-		orderSchema =				require('./db/orderSchema'),
-		Order =							mongoose.model('Order', orderSchema);
+let Client =				require('./db/clientModel'),
+		Order =					require('./db/orderModel');
 
 mongoose.Promise =	global.Promise;
 

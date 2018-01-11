@@ -8,7 +8,8 @@ angular
 
 			vm.$onInit = function () {
 				vm.isLoggedIn = AuthService.isLogged();
-				$('#authModal').modal();
+				$('#authModal').modal({
+					dismissible: false});
 				if (vm.isLoggedIn) {
 					$('#authModal').modal('close');
 					vm.initAccount(true);
