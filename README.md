@@ -4,11 +4,12 @@
 <br />
 Задание: [https://bitbucket.org/netology-university/drone-cafe](https://bitbucket.org/netology-university/drone-cafe).<br />
 Страница [клиента](https://drone-cafe-app.herokuapp.com/#!/),
-Страница [повара](https://drone-cafe-app.herokuapp.com/#!/kitchen).
+страница [повара](https://drone-cafe-app.herokuapp.com/#!/kitchen).
 
 ## Запуск приложения локально
 
 ```
+npm install
 npm start-local
 ```
 
