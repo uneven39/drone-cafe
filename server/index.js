@@ -73,7 +73,7 @@ authRoute.post('/', (req, res) => {
 				}
 			})
 			.catch(error => {
-				console.log('get user from db error: ', error);
+				console.warn('get user from db error: ', error);
 
 				res.send(error);
 				res.status(500);
@@ -105,7 +105,7 @@ menuRoute
 clientRoute
 // Get client account info
 	.get('/:id', (req, res) => {
-		console.log('client get info by ID: ', req.params);
+		// console.log('client get info by ID: ', req.params);
 		Client.findById(req.params.id, (error, found) => {
 			if (error) {
 				res.send(error);
@@ -130,7 +130,7 @@ clientRoute
 	})
 	// Create new client order
 	.post('/:id/orders', (req, res) => {
-		console.log('new order: ', req.params.id, req.body.dish);
+		// console.log('new order: ', req.params.id, req.body.dish);
 		if (req.params.id && req.body.dish) {
 			let newOrder = new Order({clientId: req.params.id, dish: req.body.dish, status: 'ordered'});
 			newOrder.save((error, newOrderRecord) => {
@@ -150,7 +150,7 @@ clientRoute
 	})
 	// Change client balance
 	.put('/:id', (req, res) => {
-		console.log('update client\'s balance: ', req.params.id, req.body);
+		// console.log('update client\'s balance: ', req.params.id, req.body);
 		Client.findById(req.params.id, (error, found) => {
 			if (error) {
 				res.send(error);
@@ -178,15 +178,20 @@ kitchenRoute
 	.get('/orders/:status', (req, res) => {
 		let status = req.params.status;
 
-		Order.find({status: status}, (error, orders) => {
-			if (error) {
-				res.send(error);
-				res.status(500);
-			} else {
-				res.send(orders);
-				res.status(200);
-			}
-		})
+		if (status) {
+			Order.find({status: status}, (error, orders) => {
+				if (error) {
+					res.send(error);
+					res.status(500);
+				} else {
+					res.send(orders);
+					res.status(200);
+				}
+			})
+		} else {
+			res.send('invalid request');
+			res.status(400);
+		}
 	})
 	// Change order status
 	.put('/orders/:orderId', (req, res) => {
@@ -204,8 +209,6 @@ kitchenRoute
 						res.send(error);
 						res.status(500);
 					} else {
-						res.send(updatedOrder);
-						res.status(200);
 						if (newStatus === 'delivering') {
 							deliverOrder()
 								.then(() => {
@@ -215,6 +218,8 @@ kitchenRoute
 									handleDeliveredOrder(found, 'failed', res);
 								})
 						}
+						res.send(updatedOrder);
+						res.status(200);
 						socketIO.emit('ordersUpdated', updatedOrder.clientId);
 					}
 				});
