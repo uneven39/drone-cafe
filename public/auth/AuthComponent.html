@@ -1,0 +1,51 @@
+<div class="row">
+    <form class="col s12" novalidate name="authForm">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="userName"
+                       type="text"
+                       required
+                       ng-model="userName"
+                       name="userName"
+                       ng-class="[{invalid: authForm.userName.$invalid && !authForm.userName.$pristine},
+                       {valid: authForm.userName.$valid}]">
+                <label for="userName">Укажите имя</label>
+            </div>
+            <div class="col s12" ng-messages="authForm.userName.$error"
+                 ng-if="!authForm.userName.$pristine"
+                 role="alert">
+                <div ng-message="required"
+                     class="error-message">Необходимо указать логин</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="userEmail"
+                       type="email"
+                       required
+                       ng-model="userEmail"
+                       name="userEmail"
+                       ng-class="[{invalid: authForm.userEmail.$invalid && !authForm.userEmail.$pristine},
+                       {valid: authForm.userEmail.$valid}]">
+                <label for="userEmail">Введите ваш e-mail</label>
+            </div>
+            <div class="col s12" ng-messages="authForm.userEmail.$error"
+                 ng-if="!authForm.userEmail.$pristine"
+                 role="alert">
+                <div ng-message="email"
+                     class="error-message">Некорректный e-mail</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="btn waves-effect waves-light"
+                        type="button"
+                        ng-disabled="authForm.$invalid"
+                        ng-click="$ctrl.login(userName, userEmail)">
+                    Войти
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

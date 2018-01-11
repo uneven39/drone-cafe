@@ -1,0 +1,31 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.error{
+    
+}
+.error-message{
+    color: rgb(244, 67, 54);
+    font-size: 11px;
+}
+
+nav {
+    /*background-color: #ffb32f;*/
+}
+
+.menu .card.small {
+    height: 400px;
+}
+
+.menu .card .card-image .card-title {
+    text-shadow: 1px 1px 3px #000;
+}
+
+.menu .card .card-content .card-title {
+    font-size: 14px;
+}

@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="s12">
+        <nav class="teal">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left">
+                    <li ui-sref-active="active"><a ui-sref="main">Главная</a></li>
+                    <li ui-sref-active="active"><a ui-sref="kitchen">Кухня</a></li>
+                    <!--<li ui-sref-active="active"><a ui-sref="auth">Вход</a></li>-->
+                    <li ng-if="$ctrl.isLogged"><a href="#" ng-click="$ctrl.logout()">Выход</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

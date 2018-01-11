@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="droneCafeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Drone Cafe</title>
+
+    <!-- design -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="lib/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/materialize-css/dist/js/materialize.min.js"></script>
+
+    <!-- allow promises everywhere -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+    <!-- socket.io -->
+    <script src="lib/socket.io-client/dist/socket.io.slim.js"></script>
+</head>
+<body>
+<div class="container">
+    <main-menu-component></main-menu-component>
+    <ui-view></ui-view>
+</div>
+
+<!-- ng core -->
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+<script src="lib/ngstorage/ngStorage.min.js"></script>
+<script src="lib/angular-messages/angular-messages.min.js"></script>
+
+<!-- content -->
+<script src="app.js"></script>
+<script src="auth/AuthService.js"></script>
+<script src="auth/AuthComponent.js"></script>
+<script src="client/ClientComponent.js"></script>
+<script src="client/ClientService.js"></script>
+<script src="kitchen/KitchenComponent.js"></script>
+<script src="kitchen/KitchenService.js"></script>
+<script src="mainMenu/MainMenuComponent.js"></script>
+</body>
+</html>
