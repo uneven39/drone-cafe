@@ -13,7 +13,7 @@ let app = express(),
     server = http.Server(app),
     socketIO = io(server);
 
-// Routes:
+// Routers:
 const clientRoute = require('./routers/clientRoute')(socketIO),
     kitchenRoute = require('./routers/kitchenRoute')(socketIO),
     authRoute = require('./routers/authRoute'),
